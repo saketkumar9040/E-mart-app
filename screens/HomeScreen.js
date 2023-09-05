@@ -120,7 +120,7 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity
               style={styles.trendingDealsContainer}
               key={index}
-            //   onPress={(item) => console.log(item)}
+              onPress={() => navigation.navigate("Product",item)}
             >
               <Image
                 source={{ uri: item.thumbnail }}
