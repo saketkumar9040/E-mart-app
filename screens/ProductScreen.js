@@ -5,12 +5,13 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Share,
 } from "react-native";
 import React, { useState } from "react";
 import { SliderBox } from "react-native-image-slider-box";
 import { AntDesign } from "@expo/vector-icons";
 import StarRating from "react-native-star-rating-widget";
-import Share from "react-native-share";
+// import Share from "react-native-share";
 
 const ProductScreen = ({ navigation, route }) => {
   const productData = route.params;
@@ -20,13 +21,21 @@ const ProductScreen = ({ navigation, route }) => {
 
   const onShare = async () => {
     try {
-      const result = await Share.open({
-        title: "E-Mart app",
-        url: `${productData.thumbnail}`,
-        message: "Hello please look at this beautify articles from E-mart",
+      const result = await Share.share({
+        message:
+          'React Native | A framework for building native apps using React',
       });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
     } catch (error) {
-      Alert.alert(error.message);
+      alert(error.message);
     }
   };
 
@@ -49,7 +58,7 @@ const ProductScreen = ({ navigation, route }) => {
               <AntDesign name="hearto" size={24} color="black" />
             )}
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => onShare()}>
+          <TouchableOpacity onPress={()=>onShare()}>
             <AntDesign name="sharealt" size={24} color="black" />
           </TouchableOpacity>
         </View>
@@ -57,13 +66,13 @@ const ProductScreen = ({ navigation, route }) => {
           <Text style={styles.descriptionText}>{productData.description}</Text>
         </View>
         <View style={styles.ratingPriceContainer}>
-          <StarRating rating={rating} starSize={25} />
+          <StarRating rating={productData.rating} starSize={25} onChange={()=>{}}/>
           <View style={{ flexDirection: "column" }}>
             <Text style={styles.productPrice}>
               ₹ {productData.price * 83} /-
             </Text>
             <Text style={styles.discountText}>
-              Discount-{productData.discountPercentage}%
+              Discount  -{productData.discountPercentage}%
             </Text>
           </View>
         </View>
@@ -144,6 +153,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "800",
     padding: 2,
-    paddingHorizontal: 30,
+    paddingHorizontal: 70,
   },
 });
