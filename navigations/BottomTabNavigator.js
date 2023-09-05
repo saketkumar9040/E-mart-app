@@ -17,13 +17,13 @@ const BottomTabNavigator = () => {
         fontSize:12
       },
       headerShown:false,
-      tabBarIcon:({focused}) => {
+      tabBarIcon:({focused}) => 
         focused ? (
-          <Ionicons name="home" size={24} color="black" />
+          <Ionicons name="home" size={24} color="#008e97" />
         ) :(
-          <Ionicons name="home-outline" size={24} color="black" />
+          <Ionicons name="home-outline" size={24} color="#008e97" />
         )
-      }
+      
     }}/>
     <Tab.Screen name="Profile" component={ProfileScreen} options={{
       tabBarLabel:"Profile",
@@ -33,13 +33,13 @@ const BottomTabNavigator = () => {
         fontSize:12
       },
       headerShown:false,
-      tabBarIcon:({focused}) => {
+      tabBarIcon:({focused}) => 
         focused ? (
-          <FontAwesome name="user" size={24} color="black" />
+          <FontAwesome name="user" size={24} color="#008e97" />
         ) :(
-          <FontAwesome name="user-o" size={24} color="black" />
+          <FontAwesome name="user-o" size={24} color="#008e97" />
         )
-      }
+      
     }}/>
     <Tab.Screen name="Cart" component={CartScreen} options={{
       tabBarLabel:"Cart",
@@ -49,13 +49,13 @@ const BottomTabNavigator = () => {
         fontSize:12
       },
       headerShown:false,
-      tabBarIcon:({focused}) => {
+      tabBarIcon:({focused}) => 
         focused ? (
-          <Ionicons name="cart" size={24} color="black" />
+          <Ionicons name="cart" size={24} color="#008e97" />
           ) :(
-          <Ionicons name="cart-outline" size={24} color="black" />
+          <Ionicons name="cart-outline" size={24} color="#008e97" />
         )
-      }
+      
     }}/>
 
    </Tab.Navigator>

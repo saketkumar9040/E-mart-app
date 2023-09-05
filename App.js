@@ -8,7 +8,7 @@ export default function App() {
   return (
     <NavigationContainer>
       {!isAuth && <AuthNavigator />}
-      {isAuth && <MainNavigator/> && <BottomTabNavigator/>}
+      {isAuth && <MainNavigator/> }
       </NavigationContainer>
   );
 }
