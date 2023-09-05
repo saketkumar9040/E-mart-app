@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   StyleSheet,
   Text,
@@ -17,6 +17,7 @@ import { style } from "deprecated-react-native-prop-types/DeprecatedViewPropType
 
 const HomeScreen = ({ navigation }) => {
   const [trendingDeals, setTrendingDeals] = useState([]);
+  const [searchText,setSearchText]= useState("");
 
   const images = [
     require("../assets/images/sliderImages/image1.jpg"),
@@ -37,6 +38,11 @@ const HomeScreen = ({ navigation }) => {
     dealsData();
   }, []);
 
+  useCallback(()=>{
+
+
+  },[searchText])
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -44,7 +50,10 @@ const HomeScreen = ({ navigation }) => {
           <Ionicons name="search" size={24} color="#fff" />
           <TextInput
             placeholder="Search E-mart"
+            value={searchText}
             style={styles.searchTextInput}
+            onChangeText={(e)=>setSearchText(e)}
+            autoCapitalize="none"
           />
           <Ionicons name="mic" size={24} color="#fff" />
         </View>
@@ -115,7 +124,15 @@ const HomeScreen = ({ navigation }) => {
           sliderBoxHeight={150}
         />
         <Text style={styles.trendingText}>Trending Deals of the Week</Text>
-        {trendingDeals?.map((item, index) => {
+        {trendingDeals.filter((item)=>{
+            if(searchText ===""){
+                return item
+            }
+            else {
+               return item.title.toLowerCase().includes(searchText.toLowerCase()) || item.category.toLowerCase().includes(searchText.toLowerCase()) || item.brand.toLowerCase().includes(searchText.toLowerCase());
+            }
+        }).map((item, index) => {
+
           return (
             <TouchableOpacity
               style={styles.trendingDealsContainer}
