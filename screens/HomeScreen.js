@@ -14,6 +14,10 @@ const HomeScreen = () => {
         />
         <Ionicons name="mic" size={24} color="#fff" />
         </View>
+        <View style={styles.addressContainer}>
+        <Ionicons name="ios-location-outline" size={24} color="black" />
+        <Text style={styles.addressText}>Deliver to Saket - Ranchi 834001</Text><Ionicons name="ios-chevron-down" size={24} color="black" />
+        </View>
       </ScrollView>
     </SafeAreaView>
   )
@@ -41,5 +45,17 @@ const styles = StyleSheet.create({
         marginHorizontal:10,
         backgroundColor:'#fff',
         borderRadius:20,
+    },
+    addressContainer:{
+        flexDirection:"row",
+        alignItems:'center',
+        gap:5,
+        padding:10,
+        backgroundColor:'#afeeee'
+    },
+    addressText:{
+        fontSize:13,
+        fontWeight:"bold",
+        letterSpacing:0.5,
     }
 });
