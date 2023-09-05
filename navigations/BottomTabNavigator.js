@@ -51,9 +51,9 @@ const BottomTabNavigator = () => {
       headerShown:false,
       tabBarIcon:({focused}) => 
         focused ? (
-          <Ionicons name="cart" size={24} color="#008e97" />
+          <Ionicons name="cart" size={32} color="#008e97" />
           ) :(
-          <Ionicons name="cart-outline" size={24} color="#008e97" />
+          <Ionicons name="cart-outline" size={32} color="#008e97" />
         )
       
     }}/>
