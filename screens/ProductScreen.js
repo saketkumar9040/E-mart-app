@@ -18,8 +18,8 @@ const ProductScreen = ({ navigation, route }) => {
   const [rating, setRating] = useState(route.params.rating);
 
   return (
-    <View>
-      <ScrollView>
+    <View style={{flex:1,}}>
+      <ScrollView >
         <SliderBox
           images={productData?.images}
           dotColor={"#fff"}
@@ -51,7 +51,13 @@ const ProductScreen = ({ navigation, route }) => {
           <Text style={styles.discountText}>Discount-{productData.discountPercentage}%</Text>
           </View>
         </View>
+        <View style={styles.freeDeliveryContainer}>
+          <Text style={styles.freeDeliveryText}>FREE delivery Tomorrow by 2 pm available in Order Within 10 hr 30 min</Text>
+        </View>
       </ScrollView>
+      <TouchableOpacity style={styles.buyNowContainer}>
+        <Text style={styles.buyNowText}>Buy Now</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -89,11 +95,33 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   discountText:{
-    fontSize:16,
-    fontWeight:"400",
-    backgroundColor:"red",
+    fontSize:17,
+    fontWeight:"800",
+    color:"red",
     padding:10,
-    color:"#fff",
+    
     borderRadius:80
+  },
+  freeDeliveryContainer:{
+    padding:10, 
+  },
+  freeDeliveryText:{
+    fontSize:14,
+    fontWeight:"700",
+    color:"#00ced1"
+  },
+  buyNowContainer:{
+    alignSelf:"center",
+    position:"absolute",
+    bottom:10,
+    backgroundColor:"red",
+    borderRadius:80,
+  },
+  buyNowText:{
+    color:"#fff",
+    fontSize:25,
+    fontWeight:"800",
+    padding:2,
+    paddingHorizontal:30
   }
 });
