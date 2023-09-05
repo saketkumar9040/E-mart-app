@@ -1,10 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
 import AuthNavigator from "./navigations/AuthNavigator";
+import MainNavigator from "./navigations/MainNavigator"
+import BottomTabNavigator from "./navigations/BottomTabNavigator";
 
 export default function App() {
-  const isAuth = false;
+  const isAuth = true;
   return (
-    <NavigationContainer>{!isAuth && <AuthNavigator />}</NavigationContainer>
+    <NavigationContainer>
+      {!isAuth && <AuthNavigator />}
+      {isAuth && <MainNavigator/> && <BottomTabNavigator/>}
+      </NavigationContainer>
   );
 }
