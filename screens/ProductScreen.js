@@ -1,4 +1,5 @@
 import {
+  Alert,
   ScrollView,
   StyleSheet,
   Text,
@@ -52,10 +53,10 @@ const ProductScreen = ({ navigation, route }) => {
           </View>
         </View>
         <View style={styles.freeDeliveryContainer}>
-          <Text style={styles.freeDeliveryText}>FREE delivery Tomorrow by 2 pm available in Order Within 10 hr 30 min</Text>
+          <Text style={styles.freeDeliveryText}>FREE delivery available Tomorrow by 2 pm  if Order Within 10 hr 30 min</Text>
         </View>
       </ScrollView>
-      <TouchableOpacity style={styles.buyNowContainer}>
+      <TouchableOpacity style={styles.buyNowContainer} onPress={()=>Alert.alert("ThankYou for Buying the product🤗")}>
         <Text style={styles.buyNowText}>Buy Now</Text>
       </TouchableOpacity>
     </View>
